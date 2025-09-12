@@ -1,0 +1,504 @@
+openapi: 3.0.3
+info:
+  title: acoGO! API
+  description: API ekosystemu acoGO!
+  version: "2.0"
+servers:
+  - url: https://api.aco.com.pl/public/v2/
+paths:
+
+  /devices:
+    get:
+      tags: [Devices]
+      summary: Pobierz listę wszystkich urządzeń użytkownika.
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceSummary'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /devices/acogoio/{devId}:
+    get:
+      tags: [Devices]
+      summary: Pobierz szczegóły urządzenia acoGO! I/O
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IpioSummary'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /acogoio/{devId}/state:
+    get:
+      tags: [IO]
+      summary: Pobierz stany wejść i wyjść urządzenia acoGO! I/O
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IpioState'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /devices/ble/{devId}:
+    get:
+      tags: [Devices]
+      summary: Pobierz szczegóły urządzenia acoGO! BLE
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia BLE
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OwnedBle'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /devices/gates/{devId}:
+    get:
+      tags: [Devices]
+      summary: Pobierz szczegóły urządzenia typu bramka
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia typu gate
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceSummary'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /devices/ivoo/{devId}:
+    get:
+      tags: [Devices]
+      summary: Pobierz szczegóły urządzenia Ivoo
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia Ivoo
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IvooSummary'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /gates/{devId}/orders/ez-open:
+    post:
+      tags: [Gates]
+      summary: Otwórz elektrozaczep
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: Polecenie zostało wysłane
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /gates/{devId}/orders/f2-open:
+    post:
+      tags: [Gates]
+      summary: Otwórz wyjście funkcjonalne F2
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          description: Unikalny identyfikator urządzenia
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      responses:
+        200:
+          description: Polecenie zostało wysłane
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/Unauthorized'
+
+  /acogoio/{devId}/in:
+    post:
+      tags: [IO]
+      summary: "Ustaw stan wejścia I/O"
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IpioOrderInParam'
+      responses:
+        '200':
+          description: OK
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/Unauthorized'
+
+  /acogoio/{devId}/out:
+    post:
+      tags: [IO]
+      summary: "Ustaw stan wyjścia I/O"
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IpioOrderOutParam'
+      responses:
+        '200':
+          description: OK
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/Unauthorized'
+
+  /acogoble/{devId}/open:
+    post:
+      tags: [BLE]
+      summary: "Otwórz urządzenie BLE"
+      parameters:
+        - name: devId
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - TokenAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BleOrderParam'
+      responses:
+        '200':
+          description: OK
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  securitySchemes:
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >
+        Jako wartość należy podać cały ciąg `Token <tutaj_token>`<br>
+        Wartość nagłówka powinna mieć format:  
+        `Authorization: Token <tutaj_token>`<br>  
+        Przykład:<br>
+        `Authorization: Token 1234567890abcdef`
+
+  schemas:
+    DeviceSummary:
+      type: object
+      properties:
+        devId:
+          type: string
+          example: "aa:bb:cc:dd:ee:ff"
+        model:
+          type: string
+          enum: [acoGO! P, acoGO! Pro, acoGO! I/O, acoGO! BT, Ivoo]
+          example: acoGO! P
+        name:
+          type: string
+          example: "Bramka acoGO!"
+        isPaid:
+          type: boolean
+
+    IpioSummary:
+      type: object
+      properties:
+        devId:
+          type: string
+          example: "00:1A:2B:3C:4D:5E"
+        fwVersion:
+          type: string
+          example: "1.1.2"
+        hwVersion:
+          type: integer
+          example: 0
+        model:
+          type: integer
+          example: 69
+        name:
+          type: string
+          example: "acoGO! I/O"
+        out1Name:
+          type: string
+        out1Time:
+          type: integer
+        out2Name:
+          type: string
+        out2Time:
+          type: integer
+        out3Name:
+          type: string
+        out3Time:
+          type: integer
+        out4Name:
+          type: string
+        out4Time:
+          type: integer
+        in1Name:
+          type: string
+        in2Name:
+          type: string
+        in3Name:
+          type: string
+        in4Name:
+          type: string
+
+    OwnedBle:
+      type: object
+      properties:
+        devId:
+          type: string
+          description: ID modułu. Standardowy format MAC-adresu </br> Sześć bloki po 2 znaki szesnastkowe (0-9, a-f, A-F). Bloki oddzielone dwukropkami (:)
+          example: "00:1A:2B:3C:4D:5E"
+        fwVersion:
+          type: string
+          description: Wersja firmware modułu
+          example: "1.1.2"
+        hwVersion:
+          type: integer
+          description: Wersja sprzętowa modułu może być tylko 0
+          minimum: 0
+          maximum: 0
+          example: 0
+        model:
+          type: integer
+          description: Model urządzenia (np. 69 dla acoGO! I/O)
+          example: 69
+        name:
+          type: string
+          description: Nazwa modułu - domyślna nazwa modułu
+          example: "acoGO! I/O"
+
+    DeviceGateDetail:
+      allOf:
+        - $ref: '#/components/schemas/DeviceSummary'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum: [owner, admin, user]
+              example: owner
+            localization:
+              type: string
+              example: "Suchy Las, ul. Diamentowa 7"
+            firmware:
+              type: string
+              example: "1.2.3"
+            software:
+              type: string
+              example: "2.0.1"
+            hardware:
+              type: string
+              example: "1"
+            supportedAddresses:
+              type: array
+              items:
+                type: string
+              example: ["1", "2", "3"]
+            dialDelay:
+              type: integer
+              example: 4
+
+    IvooSummary:
+      type: object
+      properties:
+        devId:
+          type: string
+        name:
+          type: string
+        fwVersion:
+          type: string
+        hwVersion:
+          type: integer
+        model:
+          type: integer
+
+    IpioState:
+      type: object
+      properties:
+        inputs:
+          type: object
+          properties:
+            in1:
+              type: boolean
+            in2:
+              type: boolean
+            in3:
+              type: boolean
+            in4:
+              type: boolean
+        outputs:
+          type: object
+          properties:
+            out1:
+              type: boolean
+            out2:
+              type: boolean
+            out3:
+              type: boolean
+            out4:
+              type: boolean
+
+    IpioOrderInParam:
+      type: object
+      properties:
+        inNumber:
+          type: integer
+          example: 2
+          description: numer wejścia, które wykona rozkaz
+        state:
+          type: boolean
+          example: false
+          description: wartość rozkazu
+
+    IpioOrderOutParam:
+      type: object
+      properties:
+        outNumber:
+          type: integer
+          example: 2
+          description: numer wyścia, które wykona rozkaz
+        state:
+          type: boolean
+          example: false
+          description: wartość rozkazu
+
+    BleOrderParam:
+      type: object
+      properties:
+        devId:
+          type: string
+          example: 'aa:bb:cc:dd:ee:ff'
+          description: Ble
+        controller:
+          type: string
+          example: "d6bf0625f3465040"
+          description: Id telefonu który zleca
+
+  responses:
+    Unauthorized:
+      description: Brak autoryzacji
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Brak autoryzacji. Proszę podać poprawny token."
+    NotFound:
+      description: Nie znaleziono zasobu
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Nie znaleziono urządzenia o podanym identyfikatorze."
