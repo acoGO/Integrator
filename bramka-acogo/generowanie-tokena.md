@@ -1,8 +1,8 @@
-### Generowanie tokena API
+# Generowanie tokena API
 
 Aby móc korzystać z integracji z bramką acoGO! przez własne aplikacje lub systemy, konieczne jest wygenerowanie indywidualnego tokena API. Token ten umożliwia bezpieczne uwierzytelnianie i kontrolę dostępu do funkcji bramki poprzez API.
 
-**Jak wygenerować token API?**
+## Jak wygenerować token API?
 
 Aby wygenerować nowy token API, wykonaj poniższe kroki:
 
