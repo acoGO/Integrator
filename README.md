@@ -9,3 +9,14 @@ Ekosystem acoGO! składa się z różnych komponentów, które współpracują z
 ## Cel niniejszego portalu
 
 Celem niniejszego portalu jest dostarczenie informacji na temat Ekosystemu acoGO! oraz informacji niezbędnych do zintegrowania się z nim. Portal zawiera dokumentację API, która umożliwia programistom tworzenie aplikacji i usług współpracujących z Ekosystemem acoGO!. Dzięki temu można zintegrować ekosystem acoGO! z innymi systemami i urządzeniami, co pozwala na jeszcze większą automatyzację i kontrolę nad inteligentnym osiedlem.
+
+## Spis treści
+
+* [Bramka acoGO!](bramka-acogo/bramka-acogo.md)
+  * [Api bramki](bramka-acogo/api-bramka.md)
+  * [Generowanie tokena](bramka-acogo/generowanie-tokena.md)
+  * [Rejestracja webhooka](bramka-acogo/rejestracja-webhooka.md)
+  * [Webhooki](bramka-acogo/webhooki.md)
+* [Portal acoGO!](bramka-acogo/bramka-acogo.md)
+  * [Api portal](portal-acogo/api-portal.md)
+  * [Generowanie tokena w portalu](portal-acogo/generowanie-tokena-portal.md)
