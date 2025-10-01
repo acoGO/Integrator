@@ -6,7 +6,7 @@ Bramka acoGO! pozwala na integrację zarówno "do" systemu domofonowego, jak i "
 
 ## Komunikacja przychodząca
 
-Komunikacja przychodząca do bramki acoGO! odbywa się poprzez API, które umożliwia integrację z różnymi systemami i aplikacjami. Dzięki temu możesz zarządzać bramką, podłączonymi urządzeniami oraz monitorować ich stan. Szczegółowe informacje na temat integracji z API znajdziesz w sekcji [API](api.md).
+Komunikacja przychodząca do bramki acoGO! odbywa się poprzez API, które umożliwia integrację z różnymi systemami i aplikacjami. Dzięki temu możesz zarządzać bramką, podłączonymi urządzeniami oraz monitorować ich stan. Szczegółowe informacje na temat integracji z API znajdziesz w sekcji [API](bramka-acogo/api-bramka.md).
 
 ## Komunikacja wychodząca
 
