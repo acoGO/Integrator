@@ -19,19 +19,19 @@ Authorization: Token <twój_token_api>
 ```
 
 === "HTTP"
-    ```http
+```http
     GET /api/v2/devices HTTP/1.1
     Host: api.acogo.pl
     Authorization: Token <twój_token_api>
-    ```
+```
 
 === "cURL"
-    ```bash
+```bash
     curl -X GET "https://api.acogo.pl/api/v2/devices" -H "Authorization: Token <twój_token_api>"
-    ```
+```
 
 === "Python"
-    ```python
+```python
     import requests
     headers = {
         'Authorization': 'Token <twój_token_api>'
@@ -42,4 +42,4 @@ Authorization: Token <twój_token_api>
         print(devices)
     else:
         print(f'Error: {response.status_code}')
-    ```
+```
