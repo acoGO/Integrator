@@ -20,19 +20,19 @@ Za pomocą tokena dokonujesz autoryzacji w API bramki acoGO! poprzez dodanie go 
 Nagłówek autoryzacji powinien wyglądać następująco:
 
 === "HTTP"
-    ```http
+```http
     GET /api/order/ezOpen HTTP/1.1
     Host: <adres_IP_bramki>
     Authorization: Token <twój_token_api>
-    ```
+```
 
 === "cURL"
-    ```bash
+```bash
     curl -X GET "http://<adres_IP_bramki>/api/order/ezOpen" -H "Authorization: Token <twój_token_api>"
-    ```
+```
 
 === "Python"
-    ```python
+```python
     import requests
     headers = {
         'Authorization': 'Token <twój_token_api>'
@@ -43,4 +43,4 @@ Nagłówek autoryzacji powinien wyglądać następująco:
         print(Drzwi otwarte)
     else:
         print(f'Error: {response.status_code}')
-    ```
+```
