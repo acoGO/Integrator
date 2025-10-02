@@ -20,7 +20,7 @@ Za pomocą tokena dokonujesz autoryzacji w API bramki acoGO! poprzez dodanie go 
 Nagłówek autoryzacji powinien wyglądać następująco:
 
 === "HTTP"
-```http
+```
     GET /api/order/ezOpen HTTP/1.1
     Host: <adres_IP_bramki>
     Authorization: Token <twój_token_api>
