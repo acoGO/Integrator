@@ -1,7 +1,1 @@
-# Portal acoGO! - Jak zacząć ?
 
-Aby rozpocząć korzystanie z Ekosystemu acoGO!, należy wykonać kilka kroków:
-
-1. **Rejestracja**: Zarejestruj się w systemie acoGO! poprzez aplikację mobilną [Android](https://play.google.com/store/apps/details?id=pl.aco.acogo), [iOS](https://apps.apple.com/pl/app/acogo-2-0/id1544715142?l=pl) lub [stronę internetową](https://portal.acogo.pl).
-2. **Potwierdzenie konta**: Po rejestracji otrzymasz e-mail z linkiem do potwierdzenia konta. Kliknij w link, aby aktywować swoje konto.
-3. **Generowanie tokena**: Po zalogowaniu się w portalu, wygeneruj swój token API [link]. Token ten będzie potrzebny do autoryzacji w API acoGO!.
