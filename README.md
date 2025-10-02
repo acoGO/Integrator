@@ -17,6 +17,5 @@ Celem niniejszego portalu jest dostarczenie informacji na temat Ekosystemu acoGO
   * [Generowanie tokena](bramka-acogo/generowanie-tokena.md)
   * [Rejestracja webhooka](bramka-acogo/rejestracja-webhooka.md)
   * [Webhooki](bramka-acogo/webhooki.md)
-* [Portal acoGO!](bramka-acogo/bramka-acogo.md)
-  * [Api portal](portal-acogo/api-portal.md)
+* [Portal acoGO!](portal-acogo/api-portal.md)
   * [Generowanie tokena w portalu](portal-acogo/generowanie-tokena-portal.md)
