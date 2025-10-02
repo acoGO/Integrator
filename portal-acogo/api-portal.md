@@ -19,7 +19,7 @@ Authorization: Token <twój_token_api>
 ```
 
 === "HTTP"
-```http
+```
     GET /api/v2/devices HTTP/1.1
     Host: api.acogo.pl
     Authorization: Token <twój_token_api>
