@@ -15,26 +15,26 @@ Za pomocą tokena dokonujesz autoryzacji w API acoGO! poprzez dodanie go do nag�
 Nagłówek autoryzacji powinien wyglądać następująco:
 
 ```
-Authorization: Token <twój_token_api>
+Authorization: Bearer <twój_token_api>
 ```
 
 === "HTTP"
 ```
     GET /api/v2/devices HTTP/1.1
     Host: api.acogo.pl
-    Authorization: Token <twój_token_api>
+    Authorization: Bearer <twój_token_api>
 ```
 
 === "cURL"
 ```bash
-    curl -X GET "https://api.acogo.pl/api/v2/devices" -H "Authorization: Token <twój_token_api>"
+    curl -X GET "https://api.acogo.pl/api/v2/devices" -H "Authorization: Bearer <twój_token_api>"
 ```
 
 === "Python"
 ```python
     import requests
     headers = {
-        'Authorization': 'Token <twój_token_api>'
+        'Authorization': 'Bearer <twój_token_api>'
     }
     response = requests.get('https://api.acogo.pl/api/v2/devices', headers=headers)
     if response.status_code == 200:
